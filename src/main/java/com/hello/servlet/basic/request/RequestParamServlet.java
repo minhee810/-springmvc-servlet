@@ -43,6 +43,5 @@ public class RequestParamServlet extends HttpServlet {
 
         response.getWriter().write("ok");
 
-
     }
 }
