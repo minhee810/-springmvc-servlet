@@ -18,6 +18,7 @@ import java.nio.charset.StandardCharsets;
 public class RequestBodyJsonServlet extends HttpServlet {
 
     // SpringBoot 가 제공하는 Json 데이터를 파싱하기 위한 라이브러리.
+    // jackson json 파싱 라이브러리
      private ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
@@ -27,10 +28,11 @@ public class RequestBodyJsonServlet extends HttpServlet {
 
         System.out.println("messageBody = " + messageBody);
 
-        HelloData helloData = objectMapper.readValue(messageBody, HelloData.class);
+        HelloData helloData = objectMapper.readValue(messageBody, HelloData.class); // HelloData.class 타입 객체로 변환함.
+
         System.out.println("helloData.getUsername() = " + helloData.getUsername());
         System.out.println("helloData.getAge() = " + helloData.getAge());
         
-        response.getWriter().write("okk");
+        response.getWriter().write("ok");
     }
 }
